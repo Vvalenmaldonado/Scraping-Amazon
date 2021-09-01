@@ -47,6 +47,8 @@ const puppeteer = require ("puppeteer");
             const titulos = {}; //creamos un objeto donde vamos almacenar el titulo.
             titulos.title = document.querySelector('#productTitle').innerText; // Agregamos el titulo al objeto titulos y como es un span, lo pasamos a formato text. 
             titulos.author = document.querySelector('.author a').innerText;  //Agregamos al objeto titulos, el autor y lo pasamos a formato text.
+            titulos.price = document.querySelector('.a-color-base span').innerText;
+            titulos.calification = document.querySelector('#acrCustomerReviewText').innerText;
             return titulos;
         })
         books.push(book);
