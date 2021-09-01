@@ -16,7 +16,7 @@ const puppeteer = require ("puppeteer");
     //La pagina tiene que esperar que al selector (Donde esta guardada el resultado de busqueda) 
 
     await page.waitForSelector('[data-component-type=s-search-result]'); //Como la espera es sobre un atributo se lo pone entre []
-    //await page.waitFor(10000); para darle tiempo de espera antes de terminar la ejecucion. 
+    await page.waitForTimeout(13000); // para darle tiempo de espera antes de terminar la ejecucion. 
     await page.screenshot({path: 'amazonBusqueda.jpg'}); 
 
 
@@ -49,6 +49,7 @@ const puppeteer = require ("puppeteer");
             titulos.author = document.querySelector('.author a').innerText;  //Agregamos al objeto titulos, el autor y lo pasamos a formato text.
             titulos.price = document.querySelector('.a-color-base span').innerText;
             titulos.calification = document.querySelector('#acrCustomerReviewText').innerText;
+           titulos.img = document.querySelector('.a-dynamic-image').src;
             return titulos;
         })
         books.push(book);
